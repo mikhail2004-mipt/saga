@@ -1,14 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "saga-project"
 version = "0.1.0"
 description = "Оркестраторная Saga для управления заказами"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 dependencies = []
 
 [project.optional-dependencies]
 dev = [
     "pytest",
 ]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["saga_demo*"]
+exclude = ["alembic*", "templates*", "tests*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
